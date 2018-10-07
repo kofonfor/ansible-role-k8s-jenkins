@@ -1,0 +1,5 @@
+- name: put values
+  template: src=values.yml dest=/tmp/jenkins-{{ jenkins_helm_release }}.yml
+
+- name: upgrade {{ jenkins_helm_release }} release using a Helm chart
+  shell: helm upgrade {{ jenkins_helm_release }} stable/jenkins --install --namespace {{ k8s_namespace }} -f /tmp/jenkins-{{ jenkins_helm_release }}.yml

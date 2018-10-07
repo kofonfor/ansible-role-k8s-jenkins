@@ -1,0 +1,11 @@
+Master:
+  AdminPassword: {{ k8s_jenkins_admin_password }}
+  ServiceType: NodePort
+  NodePort: {{ k8s_jenkins_nodeport }}
+
+Persistence:
+  Enabled: true
+  StorageClass: "{{ storage_class_name }}"
+
+rbac:
+  install: true
